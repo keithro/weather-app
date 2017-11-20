@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Raleway');
+
+// Colors
+$color1: purple;
+$color2: #ddd;
+
+// Spacing
+$s-size: 1.2rem;
+$m-size: 1.6rem;
+$l-size: 3.2rem;
+$xl-size: 4.8rem;
+$desktop-breakpoint: 45rem;
+
+// Breakpoints
+$tablet-breakpoint: 48rem; // 768
+$desktop-breakpoint: 66rem; // 1056
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	color: $color1; // test
+	background: $color2; // test
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1.6rem;
+	line-height: 1.6;
+}
