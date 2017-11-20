@@ -1,8 +1,11 @@
+import axios from 'axios';
 import 'normalize.css/normalize.css';
 import '../styles/styles.scss';
 
+// ===============================
+// IS THERE A UNITS OPTION IN API?
 const fahrenheit = true; // use ternary operators for ? temp : (temp - 32) * 5 / 9;
-
+// ===============================
 
 // app icons - use a default
 // clear-day
@@ -17,28 +20,19 @@ const fahrenheit = true; // use ternary operators for ? temp : (temp - 32) * 5 /
 // partly-cloudy-night
 
 function fetchData(lat, long) {
-  const url = `https://api.darksky.net/forecast/ae4574e6f3db656bc32a6df7cf73842c/${lat},${long}`;
-
-  fetch(url)
+  const url = `https://crossorigin.me/https://api.darksky.net/forecast/ae4574e6f3db656bc32a6df7cf73842c/${lat},${long}`;
+  axios.get(url)
     .then((res) => {
-      if (!res.ok) {
-        throw Error(res.status);
-      }
-      return res;
-    })
-    .then((res) => {
-      return res.json();
-    })
-    .then((res) => {
-      console.log(res);
+      console.log('Data!!!', res);
     })
     .catch((e) => {
-      alert('There was an error with your request:', e);
+      console.log('Error!!!', e);
     });
 }
 
 navigator.geolocation.getCurrentPosition((data) => {
   const { latitude, longitude } = data.coords;
+  // console.log(latitude, longitude);
 
   fetchData(latitude, longitude);
 }, (e) => {
