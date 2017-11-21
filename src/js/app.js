@@ -8,9 +8,9 @@ const currentTemp = document.querySelector('.current-temp');
 let latitude;
 let longitude;
 let units = JSON.parse(localStorage.getItem('units')) || 'us';
-console.log(units);
 
-// app icons - use a default
+// app icons
+// use a default and export from map file
 const icons = {
   'clear-day': 'day-sunny',
   'clear-night': 'night-clear',
@@ -43,14 +43,18 @@ function fetchData(lat, long) {
     });
 }
 
-function setUnits() {
-  units = units === 'us' ? 'si' : 'us';
+function setUnits() { // seperate the toggleUnits and updateUnits functions
   localStorage.setItem('units', JSON.stringify(units));
   unitSelector.textContent = `${units === 'us' ? 'F' : 'C'}`;
+}
+
+function toggleUnits() {
+  units = units === 'us' ? 'si' : 'us';
+  setUnits();
   fetchData(latitude, longitude);
 }
 
-unitSelector.addEventListener('click', setUnits);
+unitSelector.addEventListener('click', toggleUnits); // change to toggleUnits
 
 navigator.geolocation.getCurrentPosition((data) => {
   // { latitude, longitude } = data.coords;
@@ -59,7 +63,7 @@ navigator.geolocation.getCurrentPosition((data) => {
   console.log(latitude, longitude);
 
   setUnits();
-  // fetchData(latitude, longitude); // moved to setUnits function - delete
+  fetchData(latitude, longitude);
 }, (e) => {
   alert(e, 'We need your location to fetch your weather');
   // run different location service
