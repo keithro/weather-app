@@ -32,7 +32,7 @@ body {
 	line-height: 1.6;
 }
 
-.f-c-selector {
+.unit-selector {
 	position: fixed;
 	height: 3rem;
 	width: 3rem;
@@ -40,6 +40,7 @@ body {
 	text-align: center;
 	line-height: 3rem;
 	background: rgba(0, 0, 0, 0.3);
+	cursor: pointer;
 }
 
 .current h1 {

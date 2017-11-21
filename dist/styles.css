@@ -401,14 +401,15 @@ body {
   font-size: 1.6rem;
   line-height: 1.6; }
 
-.f-c-selector {
+.unit-selector {
   position: fixed;
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
   text-align: center;
   line-height: 3rem;
-  background: rgba(0, 0, 0, 0.3); }
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer; }
 
 .current h1 {
   font-size: 10rem; }
