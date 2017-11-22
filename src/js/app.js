@@ -62,7 +62,7 @@ function toggleUnits() {
   fetchData(latitude, longitude);
 }
 
-unitSelector.addEventListener('click', toggleUnits); // change to toggleUnits
+unitSelector.addEventListener('click', toggleUnits);
 
 navigator.geolocation.getCurrentPosition((data) => {
   // { latitude, longitude } = data.coords;
