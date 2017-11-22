@@ -1,0 +1,37 @@
+// triangle and bubble
+.tooltip::before, .tooltip::after {
+  position: absolute;
+  top: 50%;
+  // left: 50%;
+  opacity: 0;
+  transition: all ease 0.3s;
+}
+
+// triangle of tooltip
+.tooltip::before {
+  content: "";
+  border-width: 6px 8px 6px 0px; // create triangle
+  border-style: solid;
+  border-color: transparent rgba(0,0,0,0.2) transparent transparent; // create triangle
+  margin-top: -6px;
+  left: 35px;
+}
+
+// bubble
+.tooltip::after {
+  content: attr(data-tooltip);
+  color: #eee;
+  background: rgba(0,0,0,0.2);
+  left: 43px;
+  font-size: $s-size;
+  // padding: $s-size;
+  min-width: 100px;
+  // margin-top: 50px;
+  border-radius: 5px;
+  transform: translateY(-50%);
+}
+
+/* Hover Effects */
+.tooltip:hover::before, .tooltip:hover::after {
+  opacity: 1;
+}

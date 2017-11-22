@@ -76,6 +76,7 @@ navigator.geolocation.getCurrentPosition((data) => {
   alert(e, 'We need your location to fetch your weather');
 });
 
+// // Simulate AJAX call to test styling, animation
 // setTimeout(() => {
 //   body.classList.toggle('ready');
-// }, 2500);
+// }, 1000);

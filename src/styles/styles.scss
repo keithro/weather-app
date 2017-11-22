@@ -1,6 +1,7 @@
 @import './partials/settings';
 @import './partials/base';
 @import './partials/loader';
+@import './partials/tooltip';
 
 // Layout
 .container {
@@ -43,13 +44,18 @@
 	position: fixed;
 	top: $l-size;
 	left: $l-size;
-	height: 3rem;
-	width: 3rem;
+	height: $xl-size;
+	width: $xl-size;
 	border-radius: 50%;
 	text-align: center;
-	line-height: 3rem;
-	background: rgba(0, 0, 0, 0.3);
+	line-height: $xl-size;
+	background: rgba(0, 0, 0, 0.2);
 	cursor: pointer;
+	transition: all 200ms;
+}
+
+.unit-selector:hover {
+	background: rgba(0, 0, 0, 0.4);
 }
 
 .current h1 {

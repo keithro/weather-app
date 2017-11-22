@@ -442,6 +442,34 @@ body {
     transform-origin: -300% 50%;
     transform: rotate(-360deg); } }
 
+.tooltip::before, .tooltip::after {
+  position: absolute;
+  top: 50%;
+  opacity: 0;
+  transition: all ease 0.3s; }
+
+.tooltip::before {
+  content: "";
+  border-width: 6px 8px 6px 0px;
+  border-style: solid;
+  border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent;
+  margin-top: -6px;
+  left: 35px; }
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  color: #eee;
+  background: rgba(0, 0, 0, 0.2);
+  left: 43px;
+  font-size: 1.2rem;
+  min-width: 100px;
+  border-radius: 5px;
+  transform: translateY(-50%); }
+
+/* Hover Effects */
+.tooltip:hover::before, .tooltip:hover::after {
+  opacity: 1; }
+
 .container {
   display: none;
   flex-direction: column; }
@@ -474,13 +502,17 @@ body {
   position: fixed;
   top: 2.4rem;
   left: 2.4rem;
-  height: 3rem;
-  width: 3rem;
+  height: 3.2rem;
+  width: 3.2rem;
   border-radius: 50%;
   text-align: center;
-  line-height: 3rem;
-  background: rgba(0, 0, 0, 0.3);
-  cursor: pointer; }
+  line-height: 3.2rem;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 200ms; }
+
+.unit-selector:hover {
+  background: rgba(0, 0, 0, 0.4); }
 
 .current h1 {
   font-size: 10rem;
