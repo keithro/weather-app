@@ -74,7 +74,7 @@
 }
 
 .ready .current-temp {
-	animation: fadeIn 1s ease forwards;
+	animation: fadeIn 1s ease 500ms forwards;
 }
 
 .summary {
@@ -84,7 +84,7 @@
 }
 
 .ready .summary {
-	animation: fadeIn 1s ease forwards;
+	animation: fadeIn 1s ease 500ms forwards;
 }
 
 @keyframes fadeIn{

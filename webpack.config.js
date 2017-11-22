@@ -15,15 +15,26 @@ module.exports = (env) => {
     },
     module: {
       rules: [{
-        loader: 'babel-loader',
         test: /\.js$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }
       }, {
         test: /\.s?css$/,
         use: CSSExtract.extract({
           use: [
             {
               loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'postcss-loader',
               options: {
                 sourceMap: true
               }
