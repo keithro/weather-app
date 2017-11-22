@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Crimson+Text|Raleway);/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
 /**
@@ -389,20 +389,91 @@ template {
 [hidden] {
   display: none; }
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
 
 html {
   font-size: 62.5%; }
 
 body {
-  color: purple;
-  background: #ddd;
+  color: #fff;
+  background: radial-gradient(circle at top left, #6f5485, rgba(111, 84, 133, 0) 70%), linear-gradient(45deg, #212956, #5c66a7);
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
-  line-height: 1.6; }
+  line-height: 1;
+  text-align: center; }
+
+.loader {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.ready .loader {
+  display: none;
+  max-height: 0; }
+
+.circle {
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #fff;
+  border-radius: 50%;
+  animation: loader 2s linear infinite; }
+
+.circle:nth-child(2) {
+  animation-delay: -300ms; }
+
+.circle:nth-child(3) {
+  animation-delay: -600ms; }
+
+@keyframes loader {
+  0% {
+    transform-origin: 400% 50%;
+    transform: rotate(0); }
+  50% {
+    transform-origin: 400% 50%;
+    transform: rotate(360deg); }
+  50.01% {
+    transform-origin: -300% 50%;
+    transform: rotate(0deg); }
+  100% {
+    transform-origin: -300% 50%;
+    transform: rotate(-360deg); } }
+
+.container {
+  display: none;
+  flex-direction: column; }
+  @media screen and (min-width: 66rem) {
+    .container {
+      flex-direction: row; } }
+
+.ready .container {
+  display: flex;
+  width: 100vw;
+  height: 100vh; }
+
+.main {
+  width: 100vw;
+  flex: 0 0 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  @media screen and (min-width: 48rem) {
+    .main {
+      width: 100vw;
+      flex: 1 1 66vh; } }
+  @media screen and (min-width: 66rem) {
+    .main {
+      flex: 3 1 66vw;
+      height: 100vh; } }
 
 .unit-selector {
   position: fixed;
+  top: 2.4rem;
+  left: 2.4rem;
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
@@ -412,7 +483,29 @@ body {
   cursor: pointer; }
 
 .current h1 {
-  font-size: 10rem; }
+  font-size: 10rem;
+  margin: 0 0 1.6rem 0; }
 
 .current h3 {
-  font-size: 3.2rem; }
+  font-size: 2.4rem; }
+
+.current-temp {
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 5s ease 3s; }
+
+.ready .current-temp {
+  animation: fadeIn 1s ease forwards; }
+
+.summary {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 5s ease 3s; }
+
+.ready .summary {
+  animation: fadeIn 1s ease forwards; }
+
+@keyframes fadeIn {
+  100% {
+    transform: translate(0px);
+    opacity: 1; } }

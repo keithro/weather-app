@@ -1,54 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Raleway');
-
-// Colors
-$color1: purple;
-$color2: #ddd;
-
-$night1: rgba(92, 102, 167, 1);
-$night2: rgba(111, 84, 133, 1);
-$night3: rgba(33, 41, 86, 1);
-
-// Spacing
-$s-size: 1.2rem;
-$m-size: 1.6rem;
-$l-size: 3.2rem;
-$xl-size: 4.8rem;
-$desktop-breakpoint: 45rem;
-
-// Breakpoints
-$tablet-breakpoint: 48rem; // 768
-$desktop-breakpoint: 66rem; // 1056
-
-// General Styles
-* {
-	box-sizing: border-box;
-  margin: 0;
-	padding: 0;
-}
-
-html {
-	font-size: 62.5%;
-}
-
-body {
-	color: $color1; // test
-	background: $color2; // test
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 1.6rem;
-	line-height: 1.6;
-}
+@import './partials/settings';
+@import './partials/base';
+@import './partials/loader';
 
 // Layout
 .container {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
+  display: none;
   flex-direction: column;
-  // overflow-x: hidden;
+	// overflow-x: hidden;
 
   @media screen and (min-width: $desktop-breakpoint) {
     flex-direction: row;
   }
+}
+
+.ready .container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+	// animation
 }
 
 // Current Weather Section
@@ -72,6 +41,8 @@ body {
 
 .unit-selector {
 	position: fixed;
+	top: $l-size;
+	left: $l-size;
 	height: 3rem;
 	width: 3rem;
 	border-radius: 50%;
@@ -83,8 +54,36 @@ body {
 
 .current h1 {
 	font-size: 10rem;
+	margin: 0 0 $m-size 0;
 }
 
 .current h3 {
-	font-size: 3.2rem;
+	font-size: 2.4rem;
+}
+
+.current-temp {
+	transform: translateY(-20px);
+	opacity: 0;
+	transition: all 5s ease 3s;
+}
+
+.ready .current-temp {
+	animation: fadeIn 1s ease forwards;
+}
+
+.summary {
+	transform: translateY(20px);
+	opacity: 0;
+	transition: all 5s ease 3s;
+}
+
+.ready .summary {
+	animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn{
+	100% {
+		transform: translate(0px);
+		opacity: 1;
+	}
 }

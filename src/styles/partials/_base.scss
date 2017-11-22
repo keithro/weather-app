@@ -1,0 +1,22 @@
+// General Styles
+* {
+	box-sizing: border-box;
+  margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	color: $text;
+	background: 
+		// linear-gradient(45deg, $night3, $night2, $night1);
+		radial-gradient(circle at top left, $night2, rgba(111, 84, 133, 0) 70%),
+		linear-gradient(45deg, $night3, $night1);
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1.6rem;
+	line-height: 1;
+	text-align: center;
+}
