@@ -13,7 +13,8 @@ body {
 	color: $text;
 	background: 
 		// linear-gradient(45deg, $night3, $night2, $night1);
-		radial-gradient(circle at top left, $night2, rgba(111, 84, 133, 0) 70%),
+		radial-gradient(circle at top left, $night2, rgba(111, 84, 133, 0) 60%),
+		radial-gradient(circle at right, rgba(111, 84, 133, .5), rgba(111, 84, 133, 0) 50%),
 		linear-gradient(45deg, $night3, $night1);
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 1.6rem;

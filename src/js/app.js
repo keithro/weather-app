@@ -2,32 +2,26 @@ import axios from 'axios';
 import 'normalize.css/normalize.css';
 import '../styles/styles.scss';
 
+const { getDate } = require('./utils/dates');
+const { createIcon, windIcon } = require('./utils/icons');
+// const getDate = require('./utils/dates'); // if above is not working
+
 const body = document.querySelector('body');
 const unitSelector = document.querySelector('.unit-selector');
-const currentTemp = document.querySelector('.current-temp');
 const summary = document.querySelector('.summary');
+const currentTemp = document.querySelector('.current-temp');
+const rain = document.querySelector('.rain > span');
+const wind = document.querySelector('.wind > span');
 let latitude;
 let longitude;
+// const weather = {};
 let units = JSON.parse(localStorage.getItem('units')) || 'imperial';
-
-function createIcon(weather) {
-  let icon = '<i class="wi wi-owm-';
-  if ([781, 804, 901, 905].indexOf(weather.id) < 0) {
-    if (weather.icon.includes('n')) {
-      icon += 'night-';
-    } else if (weather.icon.includes('d')) {
-      icon += 'day-';
-    } else {
-      icon += '';
-    }
-  }
-  icon += `${weather.id}"></i>`;
-  return icon;
-}
 
 function updateData(data) {
   currentTemp.innerHTML = `${Math.round(data.main.temp)}&deg; ${createIcon(data.weather[0])}</i>`;
   summary.textContent = `${data.weather[0].main} in ${data.name}`;
+  rain.textContent = 0; // not working `${Math.round(data.rain.3h) || 0}`
+  wind.innerHTML = `${Math.round(data.wind.speed)} <i class="wi wi-wind from-${windIcon(data.wind.deg)}-deg"></i>`;
 }
 
 function fetchData(lat, long) {
@@ -36,13 +30,9 @@ function fetchData(lat, long) {
 
   axios.get(url)
     .then((res) => {
-      // get data
       console.log('Data!!!', res.data);
-      // store data in local storage
-
-      // upate data in DOM
       updateData(res.data);
-      // add ready or active class
+      // add ready or active class - move outside of function to create util
       body.classList.toggle('ready');
     })
     .catch((e) => {
@@ -62,19 +52,22 @@ function toggleUnits() {
   fetchData(latitude, longitude);
 }
 
+const runApp = () => {
+  navigator.geolocation.getCurrentPosition((data) => {
+    // { latitude, longitude } = data.coords;
+    latitude = data.coords.latitude;
+    longitude = data.coords.longitude;
+    console.log(latitude, longitude);
+
+    fetchData(latitude, longitude);
+  }, (e) => {
+    alert(e, 'We need your location to fetch your weather');
+  });
+};
+
 unitSelector.addEventListener('click', toggleUnits);
-
-navigator.geolocation.getCurrentPosition((data) => {
-  // { latitude, longitude } = data.coords;
-  latitude = data.coords.latitude;
-  longitude = data.coords.longitude;
-  console.log(latitude, longitude);
-
-  setUnits();
-  fetchData(latitude, longitude);
-}, (e) => {
-  alert(e, 'We need your location to fetch your weather');
-});
+setUnits();
+runApp();
 
 // // Simulate AJAX call to test styling, animation
 // setTimeout(() => {

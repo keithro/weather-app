@@ -403,7 +403,7 @@ html {
 
 body {
   color: #fff;
-  background: radial-gradient(circle at top left, #6f5485, rgba(111, 84, 133, 0) 70%), linear-gradient(45deg, #212956, #5c66a7);
+  background: radial-gradient(circle at top left, #6f5485, rgba(111, 84, 133, 0) 60%), radial-gradient(circle at right, rgba(111, 84, 133, 0.5), rgba(111, 84, 133, 0) 50%), linear-gradient(45deg, #212956, #5c66a7);
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   line-height: 1;
@@ -486,25 +486,26 @@ body {
     -webkit-transform: rotate(-360deg);
             transform: rotate(-360deg); } }
 
-.tooltip::before, .tooltip::after {
+.tooltip:before, .tooltip:after {
   position: absolute;
   top: 50%;
   opacity: 0;
   -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s; }
+  transition: all ease 0.3s;
+  pointer-events: none; }
 
-.tooltip::before {
+.tooltip:before {
   content: "";
   border-width: 6px 8px 6px 0px;
   border-style: solid;
-  border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent;
+  border-color: transparent rgba(0, 0, 0, 0.4) transparent transparent;
   margin-top: -6px;
   left: 35px; }
 
-.tooltip::after {
+.tooltip:after {
   content: attr(data-tooltip);
   color: #eee;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
   left: 43px;
   font-size: 1.2rem;
   min-width: 100px;
@@ -513,7 +514,7 @@ body {
           transform: translateY(-50%); }
 
 /* Hover Effects */
-.tooltip:hover::before, .tooltip:hover::after {
+.tooltip:hover:before, .tooltip:hover:after {
   opacity: 1; }
 
 .container {
@@ -576,7 +577,7 @@ body {
   border-radius: 50%;
   text-align: center;
   line-height: 3.2rem;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
   cursor: pointer;
   -webkit-transition: all 200ms;
   transition: all 200ms; }

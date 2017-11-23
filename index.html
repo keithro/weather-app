@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Weather App</title>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.css"> -->
   <link rel="stylesheet" href="./dist/weather-icons.css">
+  <link rel="stylesheet" href="./dist/weather-icons-wind.css">
   <link rel="stylesheet" href="./dist/styles.css">
 </head>
 
@@ -18,22 +18,30 @@
   </div>
 
   <div class="container">
-    <div class="unit-selector tooltip" data-tooltip="toggle &deg;C/&deg;F">F</div>
+    <div class="unit-selector tooltip" data-tooltip="toggle &deg;C / &deg;F">F</div>
     <div class="main">
       <div class="current">
         <!-- Remember to delete temporary data -->
-        <h1 class="current-temp">72&deg; <i class="wi wi-owm-804"></i></h1>
         <h3 class="summary">New York is Sunny</h3>
+        <h1 class="current-temp">72&deg; <i class="wi wi-owm-804"></i></h1>
+        <div class="details">
+          <div class="rain">
+            <i class="wi wi-raindrops"></i> <span>0</span> 
+          </div>
+          <div class="wind">
+            <i class="wi wi-strong-wind"></i> <span>0</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- <div class="forecast">
+    <div class="forecast">
       <div class="day1"></div>
       <div class="day2"></div>
       <div class="day3"></div>
       <div class="day4"></div>
       <div class="day5"></div>
-    </div> -->
+    </div>
   </div>
 
   <script src="./dist/bundle.js"></script>
