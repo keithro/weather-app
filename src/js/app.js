@@ -2,40 +2,15 @@ import axios from 'axios';
 import 'normalize.css/normalize.css';
 import '../styles/styles.scss';
 
-const { getDate } = require('./utils/dates');
-const { createIcon, windIcon } = require('./utils/icons');
+const { updateCurrentWeather } = require('./utils/update-data');
 
 const body = document.querySelector('body');
 const unitSelector = document.querySelector('.unit-selector');
-const summary = document.querySelector('.summary');
-const currentTemp = document.querySelector('.current-temp');
-const rainDisplay = document.querySelector('.rain-display > span');
-const windDisplay = document.querySelector('.wind-display > span');
 
 let latitude;
 let longitude;
 // const weather = {};
 let units = JSON.parse(localStorage.getItem('units')) || 'imperial';
-
-function updateData(data) {
-  currentTemp.innerHTML = `${Math.round(data.main.temp)}&deg; ${createIcon(data.weather[0])}</i>`;
-  summary.textContent = `${data.weather[0].main} in ${data.name}`;
-  rainDisplay.textContent = `${data.rain ? (Math.round(data.rain['3h'] * 10) / 10) : '0.0'}`;
-  windDisplay.innerHTML = `${Math.round(data.wind.speed)} <i class="wi wi-wind from-${windIcon(data.wind.deg)}-deg"></i>`;
-
-  // set background based on data.weather.description
-  console.log(data.weather[0].id);
-
-  if (data.weather[0].icon.includes('n')) { // this is alrady the default bg
-    body.classList.add('night');
-  } else if (data.weather[0].id <= 600 && data.weather[0].id < 700) {
-    body.classList.add('snow');
-  } else if (data.weather[0].id <= 200 && data.weather[0].id < 800) {
-    body.classList.add('gray');
-  } else {
-    body.classList.add('day');
-  }
-}
 
 function fetchData(lat, long) {
   console.log('Fetching Data...');
@@ -45,9 +20,8 @@ function fetchData(lat, long) {
   axios.get(url)
     .then((res) => {
       console.log('Data!!!', res.data);
-      // getDate(res.data.dt); // fix function
-      updateData(res.data);
       body.classList.toggle('ready');
+      updateCurrentWeather(res.data);
       // setTimeout(() => {                           // Do I need this?
         
       // }, 100);
@@ -81,9 +55,9 @@ const runApp = () => {
 
 unitSelector.addEventListener('click', toggleUnits);
 setUnits();
-// runApp();
+runApp();
 
 // Simulate AJAX call to test styling, animation
-setTimeout(() => {
-  body.classList.toggle('ready');
-}, 1000);
+// setTimeout(() => {
+//   body.classList.toggle('ready');
+// }, 1000);

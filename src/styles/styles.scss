@@ -13,7 +13,11 @@
 .container {
   display: none;
 	flex-direction: column;
-	padding: $s-size;
+	padding: $xs-size;
+
+  @media screen and (min-width: $tablet-breakpoint) {
+    padding: $s-size;
+  }
 
   @media screen and (min-width: $desktop-breakpoint) {
     flex-direction: row;

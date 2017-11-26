@@ -7,10 +7,10 @@
   align-items: center;
   justify-content: center;
 
-  // @media screen and (min-width: $tablet-breakpoint) {        // PROBABLY DELETE
-  //   width: 100%;
-  //   flex: 1 1 70%;
-  // }
+  @media screen and (min-width: $tablet-breakpoint) {        // PROBABLY DELETE
+    width: 100%;
+    flex: 1 1 60%;
+  }
   @media screen and (min-width: $desktop-breakpoint) {
     flex: 1 1 60%;
     height: 100%;

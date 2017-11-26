@@ -10,10 +10,10 @@
   justify-content: space-between;
   align-items: center;
   
-  // @media screen and (min-width: $tablet-breakpoint) {        // PROBABLY DELETE
-  //   width: 100%;
-  //   flex: 1 1 30%;
-  // }
+  @media screen and (min-width: $tablet-breakpoint) {        // PROBABLY DELETE
+    width: 100%;
+    flex: 1 1 40%;
+  }
   @media screen and (min-width: $desktop-breakpoint) {
     flex: 1 1 40%;
     height: 100%;
@@ -40,6 +40,10 @@
   padding: $xs-size;
   margin-right: $xs-size;
 
+  @media screen and (min-width: $tablet-breakpoint) {
+    margin-right: $s-size;
+  }
+
   @media screen and (min-width: $desktop-breakpoint) {
     // flex: 1 1 60%;
     // height: 100%;
@@ -52,6 +56,9 @@
 .day-container:last-child {
   margin-right: 0;
   
+  @media screen and (min-width: $tablet-breakpoint) {
+    margin-right: 0;
+  }
   @media screen and (min-width: $desktop-breakpoint) {
     // flex: 1 1 60%;
     // height: 100%;
