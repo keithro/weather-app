@@ -2,7 +2,7 @@ import axios from 'axios';
 import 'normalize.css/normalize.css';
 import '../styles/styles.scss';
 
-const { updateCurrentWeather } = require('./utils/update-data');
+const { updateCurrentWeather, updateForecast } = require('./utils/update-data');
 
 const body = document.querySelector('body');
 const unitSelector = document.querySelector('.unit-selector');
@@ -15,19 +15,25 @@ let units = JSON.parse(localStorage.getItem('units')) || 'imperial';
 function fetchData(lat, long) {
   console.log('Fetching Data...');
   const url = `https://api.openweathermap.org/data/2.5/weather?units=${units}&lat=${lat}&lon=${long}&APPID=000e52245e9cbf2a3bd9ae75ef64c86d`;
-  // const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?units=${units}&lat=${lat}&lon=${long}&APPID=000e52245e9cbf2a3bd9ae75ef64c86d`;
+  const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?units=${units}&lat=${lat}&lon=${long}&APPID=000e52245e9cbf2a3bd9ae75ef64c86d`;
 
+  // Current Weather AJAX Call
   axios.get(url)
     .then((res) => {
-      console.log('Data!!!', res.data);
       body.classList.toggle('ready');
       updateCurrentWeather(res.data);
-      // setTimeout(() => {                           // Do I need this?
-        
-      // }, 100);
+
+      // Forecast AJAX Call
+      axios.get(forecastUrl)
+        .then((forecastRes) => {
+          updateForecast(forecastRes);
+        })
+        .catch((e) => {
+          console.log('Error on Forecast!', e);
+        });
     })
     .catch((e) => {
-      console.log('Error!!!', e);
+      console.log('Error on Current Weather!', e);
     });
 }
 

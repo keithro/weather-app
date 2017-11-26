@@ -37,18 +37,20 @@
   text-transform: uppercase;
   height: 100%;
   width: 100%;
-  padding: $xs-size;
+  padding: 0.6rem;
   margin-right: $xs-size;
 
   @media screen and (min-width: $tablet-breakpoint) {
     margin-right: $s-size;
+    padding: $s-size;
   }
-
+  
   @media screen and (min-width: $desktop-breakpoint) {
     // flex: 1 1 60%;
     // height: 100%;
     margin-bottom: $s-size;
     margin-right: 0;
+    padding: $m-size;
     
   }
 }
@@ -66,8 +68,8 @@
   }
 }
 
-.day-container h4 {
-  font-size: 1.3rem;
+.date-heading {
+  font-size: 1.2rem;
   margin-bottom: $xs-size;
   
 
