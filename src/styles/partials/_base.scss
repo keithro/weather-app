@@ -11,13 +11,29 @@ html {
 
 body {
 	color: $text;
-	background: 
-		// linear-gradient(45deg, $night3, $night2, $night1);
-		radial-gradient(circle at top left, $night2, rgba(111, 84, 133, 0) 60%),
-		radial-gradient(circle at right, rgba(111, 84, 133, .5), rgba(111, 84, 133, 0) 50%),
-		linear-gradient(45deg, $night3, $night1);
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 1.6rem;
 	line-height: 1;
 	text-align: center;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+
+h1 {
+	font-size: 10rem;
+}
+
+h2 {
+	font-size: 4.2rem;
+}
+
+h3 {
+	font-size: 2.4rem;
+}
+
+// h4 {
+// 	font-size: 1.3rem;
+// }

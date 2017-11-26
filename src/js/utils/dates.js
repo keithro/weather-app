@@ -9,7 +9,7 @@ const getDate = (data) => {
   const date = time.getDate();
   const day = time.getDay(); // 0-6
   return `${days[day]} ${date}`;
-}
+};
 
 module.exports = { getDate };
 // module.exports.getDate = getDate; //if above doesn't work

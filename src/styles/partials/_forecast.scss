@@ -1,0 +1,77 @@
+.forecast {
+  // FOR ANIMATION
+  // transform: translate(1000px);
+  // opacity: 1;
+
+  width: 100%;
+  flex: 0 0 30%;
+	display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  // @media screen and (min-width: $tablet-breakpoint) {        // PROBABLY DELETE
+  //   width: 100%;
+  //   flex: 1 1 30%;
+  // }
+  @media screen and (min-width: $desktop-breakpoint) {
+    flex: 1 1 40%;
+    height: 100%;
+    flex-direction: column;
+  }
+}
+
+.forecast-ready .forecast {
+  animation: bringIn 3s ease 0ms forwards;
+}
+
+@keyframes bringIn{
+	100% {
+		transform: translate(0px);
+		opacity: 1;
+	}
+}
+
+.day-container {
+  background: $bgAlt1;
+  text-transform: uppercase;
+  height: 100%;
+  width: 100%;
+  padding: $xs-size;
+  margin-right: $xs-size;
+
+  @media screen and (min-width: $desktop-breakpoint) {
+    // flex: 1 1 60%;
+    // height: 100%;
+    margin-bottom: $s-size;
+    margin-right: 0;
+    
+  }
+}
+
+.day-container:last-child {
+  margin-right: 0;
+  
+  @media screen and (min-width: $desktop-breakpoint) {
+    // flex: 1 1 60%;
+    // height: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.day-container h4 {
+  font-size: 1.3rem;
+  margin-bottom: $xs-size;
+  
+
+  @media screen and (min-width: $tablet-breakpoint) {        // PROBABLY DELETE
+    font-size: 2.2rem;
+    // margin: xs-size 0;
+  }
+
+  @media screen and (min-width: $desktop-breakpoint) {
+    text-align: left;
+    // font-size: 1.3rem;
+    // margin: xs-size 0;
+  }
+}

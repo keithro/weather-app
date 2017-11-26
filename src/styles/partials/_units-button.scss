@@ -1,3 +1,21 @@
+.unit-selector {
+	position: fixed;
+	top: $l-size;
+	left: $l-size;
+	height: $xl-size;
+	width: $xl-size;
+	border-radius: 50%;
+	text-align: center;
+	line-height: $xl-size;
+	background: $bgAlt2;
+	cursor: pointer;
+	transition: all 200ms;
+}
+
+.unit-selector:hover {
+	background: rgba(0, 0, 0, 0.4);
+}
+
 // triangle and bubble
 .tooltip:before, .tooltip:after {
   position: absolute;
@@ -11,9 +29,9 @@
 // triangle of tooltip
 .tooltip:before {
   content: "";
-  border-width: 6px 8px 6px 0px; // create triangle
+  border-width: 6px 8px 6px 0px;
   border-style: solid;
-  border-color: transparent $comp transparent transparent; // create triangle
+  border-color: transparent $bgAlt2 transparent transparent;
   margin-top: -6px;
   left: 35px;
 }
@@ -22,7 +40,7 @@
 .tooltip:after {
   content: attr(data-tooltip);
   color: #eee;
-  background: $comp;
+  background: $bgAlt2;
   left: 43px;
   font-size: $s-size;
   min-width: 100px;

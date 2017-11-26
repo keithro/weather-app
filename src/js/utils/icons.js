@@ -12,7 +12,7 @@ const createIcon = (data) => {
   }
   icon += `${data.id}"></i>`;
   return icon;
-}
+};
 
 const windIcon = (deg) => {
   switch (true) {
@@ -61,6 +61,6 @@ const windIcon = (deg) => {
     default:
       return 0;
   }
-}
+};
 
 module.exports = { createIcon, windIcon };
