@@ -39,6 +39,8 @@
   width: 100%;
   padding: 0.6rem;
   margin-right: $xs-size;
+  display: flex;
+  flex-flow: column nowrap;
 
   @media screen and (min-width: $tablet-breakpoint) {
     margin-right: $s-size;
@@ -82,5 +84,25 @@
     text-align: left;
     // font-size: 1.3rem;
     // margin: xs-size 0;
+  }
+}
+
+.daily-forecast {
+  // font-size: 1.2rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  @media screen and (min-width: $tablet-breakpoint) {        // PROBABLY DELETE
+    // font-size: 2.2rem;
+    
+  }
+
+  @media screen and (min-width: $desktop-breakpoint) {
+    // font-size: 1.3rem;
+  flex-direction: row;
   }
 }

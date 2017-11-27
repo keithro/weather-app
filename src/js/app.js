@@ -2,7 +2,7 @@ import axios from 'axios';
 import 'normalize.css/normalize.css';
 import '../styles/styles.scss';
 
-const { updateCurrentWeather, updateForecast } = require('./utils/update-data');
+const { updateCurrentWeather } = require('./utils/update-data');
 
 const body = document.querySelector('body');
 const unitSelector = document.querySelector('.unit-selector');
@@ -10,40 +10,32 @@ const unitSelector = document.querySelector('.unit-selector');
 let latitude;
 let longitude;
 // const weather = {};
-let units = JSON.parse(localStorage.getItem('units')) || 'imperial';
+let units = JSON.parse(localStorage.getItem('units')) || 'us';
 
 function fetchData(lat, long) {
   console.log('Fetching Data...');
-  const url = `https://api.openweathermap.org/data/2.5/weather?units=${units}&lat=${lat}&lon=${long}&APPID=000e52245e9cbf2a3bd9ae75ef64c86d`;
-  const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?units=${units}&lat=${lat}&lon=${long}&APPID=000e52245e9cbf2a3bd9ae75ef64c86d`;
+  // find a better solution for No 'Access-Control-Allow-Origin' header
+  const url = `https://crossorigin.me/https://api.darksky.net/forecast/ae4574e6f3db656bc32a6df7cf73842c/${lat},${long}?units=${units}`;
 
   // Current Weather AJAX Call
   axios.get(url)
     .then((res) => {
+      // ADD WEATHER DATA TO LOCAL STORAGE FOR FALL BACK IF NOT WORKING
       body.classList.toggle('ready');
       updateCurrentWeather(res.data);
-
-      // Forecast AJAX Call
-      axios.get(forecastUrl)
-        .then((forecastRes) => {
-          updateForecast(forecastRes);
-        })
-        .catch((e) => {
-          console.log('Error on Forecast!', e);
-        });
     })
     .catch((e) => {
-      console.log('Error on Current Weather!', e);
+      console.log('Error!!!', e);
     });
 }
 
 function setUnits() {
   localStorage.setItem('units', JSON.stringify(units));
-  unitSelector.textContent = `${units === 'imperial' ? 'F' : 'C'}`;
+  unitSelector.textContent = `${units === 'us' ? 'F' : 'C'}`;
 }
 
 function toggleUnits() {
-  units = units === 'imperial' ? 'metric' : 'imperial';
+  units = units === 'us' ? 'si' : 'us';
   setUnits();
   body.classList.toggle('ready');
   fetchData(latitude, longitude);
