@@ -28,8 +28,8 @@ const fetchData = (lat, long) => {
   console.log('Fetching Data...');
 
   // find a better solution for No 'Access-Control-Allow-Origin' header
-  // const url = `https://crossorigin.me/https://api.darksky.net/forecast/ae4574e6f3db656bc32a6df7cf73842c/${lat},${long}?units=${units}`;
-  const url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/ae4574e6f3db656bc32a6df7cf73842c/${lat},${long}?units=${units}`;
+  const url = `https://crossorigin.me/https://api.darksky.net/forecast/ae4574e6f3db656bc32a6df7cf73842c/${lat},${long}?units=${units}`;
+  // const url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/ae4574e6f3db656bc32a6df7cf73842c/${lat},${long}?units=${units}`;
 
   axios.get(url)
     .then((res) => {
@@ -56,7 +56,7 @@ setUnits();
 
 navigator.geolocation.getCurrentPosition((data) => {
   ({ latitude, longitude } = data.coords);
-  console.log(latitude, longitude);
+  // console.log(latitude, longitude);
   fetchData(latitude, longitude);
 }, (e) => {
   alert(e, 'We need your location to fetch your weather');
