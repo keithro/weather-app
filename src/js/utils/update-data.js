@@ -1,4 +1,4 @@
-const { createIcon, windIcon } = require('./icons');
+const { windIcon } = require('./icons');
 
 const body = document.querySelector('body');
 const summary = document.querySelector('.summary');
@@ -18,7 +18,7 @@ const updateWeather = (data) => {
   console.log('Data!!!', data);
 
   // Current Weather Content
-  summary.textContent = `Currently ${data.currently.summary}`; // `${data.weather[0].main} in ${data.name}`;
+  summary.textContent = `Currently ${data.currently.summary}`;
   currentTemp.innerHTML = `${Math.round(data.currently.temperature)}&deg; <i class="wi wi-forecast-io-${data.currently.icon}"></i>`;
   highLow.innerHTML = `${Math.round(data.daily.data[0].temperatureHigh)}°<span></span>${Math.round(data.daily.data[0].temperatureLow)}°`;
   rainDisplay.textContent = `${Math.round(data.currently.precipProbability * 100)}`;

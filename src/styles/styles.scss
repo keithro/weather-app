@@ -5,10 +5,8 @@
 @import './partials/current';
 @import './partials/units-button';
 @import './partials/forecast';
+@import './partials/_error-message.scss';
 
-* {
-	// border: 1px black solid;
-}
 // Layout
 .container {
   display: none;

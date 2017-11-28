@@ -12,6 +12,11 @@
 	max-height: 0;
 }
 
+.error .loader {
+	display: none;
+	max-height: 0;
+}
+
 .circle {
   width: $s-size;
   height: $s-size;
