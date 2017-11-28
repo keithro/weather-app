@@ -59,11 +59,11 @@ const runApp = () => {
 
 unitSelector.addEventListener('click', toggleUnits);
 setUnits();
-runApp();
+// runApp();
 
 // Simulate AJAX call to test styling, animation
-// setTimeout(() => {
-//   weatherData = JSON.parse(localStorage.getItem('weatherData'));
-//   updateWeather(weatherData);
-//   body.classList.toggle('ready');
-// }, 1000);
+setTimeout(() => {
+  weatherData = JSON.parse(localStorage.getItem('weatherData'));
+  updateWeather(weatherData);
+  body.classList.toggle('ready');
+}, 1000);
