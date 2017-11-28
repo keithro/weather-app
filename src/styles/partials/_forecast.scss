@@ -1,8 +1,4 @@
 .forecast {
-  // FOR ANIMATION
-  // transform: translate(1000px);
-  // opacity: 1;
-
   width: 100%;
   flex: 0 0 30%;
 	display: flex;
@@ -21,17 +17,6 @@
   }
 }
 
-.forecast-ready .forecast {
-  animation: bringIn 3s ease 0ms forwards;
-}
-
-@keyframes bringIn{
-	100% {
-		transform: translate(0px);
-		opacity: 1;
-	}
-}
-
 .day-container {
   background: $bgAlt1;
   text-transform: uppercase;
@@ -39,8 +24,11 @@
   width: 100%;
   padding: 0.6rem;
   margin-right: $xs-size;
+  flex: 1 1 14%;
   display: flex;
   flex-flow: column nowrap;
+  transform: translateY(50vh);
+  opacity: 0;
 
   @media screen and (min-width: $tablet-breakpoint) {
     margin-right: $s-size;
@@ -69,6 +57,22 @@
     margin-bottom: 0;
   }
 }
+.ready .day-container {
+  animation: popUp 700ms cubic-bezier(0.4, 1.38, 0.79, 1.02) forwards;
+}
+
+@for $i from 1 through 7 {
+    .ready .day-container:nth-child(#{$i}) {
+      animation-delay: 100ms * $i + 800ms;
+    }
+  }
+
+@keyframes popUp{
+	100% {
+		transform: translate(0px);
+		opacity: 1;
+	}
+}
 
 .date-heading {
   font-size: 1.2rem;
@@ -88,7 +92,7 @@
 }
 
 .daily-forecast {
-  // font-size: 1.2rem;
+  font-size: 1.2rem;
   height: 100%;
   width: 100%;
   display: flex;
@@ -104,5 +108,33 @@
   @media screen and (min-width: $desktop-breakpoint) {
     // font-size: 1.3rem;
   flex-direction: row;
+  }
+}
+
+.daily-temp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @media screen and (min-width: $desktop-breakpoint) {        // PROBABLY DELETE
+   flex-direction: row; 
+  }
+}
+
+.daily-temp p {
+  padding: .3rem;
+
+  @media screen and (min-width: $desktop-breakpoint) {        // PROBABLY DELETE
+   flex-direction: row; 
+  }
+}
+
+.daily-temp p:first-child {
+  border-bottom: solid 1px $text;
+  
+  @media screen and (min-width: $desktop-breakpoint) {        // PROBABLY DELETE
+    border-bottom: none;
+    border-right: solid 1px $text;
   }
 }
