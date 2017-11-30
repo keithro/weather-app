@@ -1,11 +1,12 @@
 .error-message {
   display: none;
-	max-height: 0;
 }
 .error .error-message {
-  width: 100vw;
-  height: 100vh;
+  width: 320px;
+  height: 150px;
+  padding: 30px;
   background: $bgAlt2;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;

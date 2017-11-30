@@ -9,13 +9,14 @@ const windDisplay = document.querySelector('.wind-display > span');
 const dateHeadings = document.querySelectorAll('.date-heading');
 const dailyForecasts = document.querySelectorAll('.daily-forecast');
 
+const gray = ['rain', 'snow', 'sleet', 'fog', 'cloudy', 'hail', 'thunderstorm', 'tornado'];
+const clear = ['clear-day', 'cloudy-day', 'wind', 'partly-cloudy-day'];
 const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const time = new Date();
 const day = time.getDay();
-// const date = time.getDate();
 
 const updateWeather = (data) => {
-  console.log('Data!!!', data);
+  // console.log('Data!!!', data);
 
   // Current Weather Content
   summary.textContent = `Currently ${data.currently.summary}`;
@@ -42,21 +43,11 @@ const updateWeather = (data) => {
   });
 
   // Background
-  // // set background based on data.weather.description
-  // console.log('weather id', data.weather[0].id);
-  // if (data.weather[0].icon.includes('n')) { // this is alrady the default bg
-  //   body.classList.add('night');
-  // } else if (data.weather[0].id <= 600 && data.weather[0].id < 700) {
-  //   body.classList.add('snow');
-  // } else if (data.weather[0].id <= 200 && data.weather[0].id < 800) {
-  //   body.classList.add('gray');
-  // } else {
-  //   body.classList.add('day');
-  // }
-
-  // setTimeout(() => {             // Do I need this for background transition?
-
-  // }, 100);
+  if (clear.indexOf(data.currently.icon) >= 0) {
+    body.classList.add('day');
+  } else if (gray.indexOf(data.currently.icon) >= 0) {
+    body.classList.add('gray');
+  }
 };
 
 module.exports = { updateWeather };

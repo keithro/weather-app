@@ -1,51 +1,32 @@
-
-
 $night1: rgba(92, 102, 167, 1);
 $night2: rgba(111, 84, 133, 1);
 $night3: rgba(33, 41, 86, 1);
 
 $day1: rgb(234, 236, 198);
 $day2: rgb(67, 198, 172);
-$day3: rgb(43, 192, 228);
+$day3: rgb(53, 190, 197);
+// $day3: rgb(43, 192, 228);
 
-$gray1: #d7dde8;
-$gray2: #757f9a;
-// $gray1: rgb(75, 121, 161);
-// $gray2: rgb(40, 62, 81);
+$gray1: rgb(215, 221, 232);
+$gray2: rgb(117, 127, 154);
 
-// $snow1: #E0EAFC;
-// $snow1: #E0EAFC;
-$snow1: #E0EAFC;
-$snow2: #CFDEF3;
 
 body {
 	color: $text;
 	background:
-		// linear-gradient(45deg, $night3, $night2, $night1);
 		radial-gradient(circle at top left, rgba(111, 84, 133, 0.7), rgba(111, 84, 133, 0) 50%),
 		radial-gradient(circle at right, rgba(111, 84, 133, 0.5), rgba(111, 84, 133, 0) 50%),
     linear-gradient(45deg, $night3 10%, $night1);
-  transition: background-color 3000ms;
+  transition: background 3000ms;
 }
 
 body.day {
 	background:
-		// radial-gradient(circle at top left, $day2, rgba(111, 84, 133, 0) 60%),
-		// radial-gradient(circle at right, rgba(111, 84, 133, .5), rgba(111, 84, 133, 0) 50%),
-		linear-gradient(15deg, $day3, $day1);
+		// radial-gradient(circle at top right, rgba(234, 236, 198, 7), rgba(234, 236, 198, 0) 60%),
+		// linear-gradient(20deg, $day2, $day3 45%);
+		linear-gradient(25deg, $day3, $day1);
 }
 
 body.gray {
-	background:
-		// radial-gradient(circle at top left, $night2, rgba(111, 84, 133, 0.7) 50%),
-		// radial-gradient(circle at right, rgba(111, 84, 133, .5), rgba(111, 84, 133, 0) 50%),
-		linear-gradient($gray1, $gray2);
-}
-
-body.snow {
-  color: #555;
-	background:
-		radial-gradient(circle at top left, $night2, rgba(111, 84, 133, 0) 60%),
-		radial-gradient(circle at right, rgba(111, 84, 133, .5), rgba(111, 84, 133, 0) 50%),
-		linear-gradient($snow2, $snow1);
+	background: linear-gradient($gray1, $gray2);
 }

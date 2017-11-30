@@ -21,7 +21,6 @@
 	font-weight: 400;
 	transform: translateY(-20px);
 	opacity: 0;
-	transition: all 5s ease 3s;
 	
   @media screen and (min-width: $tablet-breakpoint) {
 		font-size: 3.2rem;
@@ -41,7 +40,6 @@
 	margin: 1.6rem 0 1rem 0;
 	transform: translateY(-20px);
 	opacity: 0;
-	// transition: all 5s ease 3s;
 	
   @media screen and (min-width: $tablet-breakpoint) {
 		font-size: 12rem;
@@ -63,7 +61,6 @@
 	justify-content: space-between;
 	transform: translateY(-20px);
 	opacity: 0;
-	transition: all 5s ease 3s;
 	
   @media screen and (min-width: $tablet-breakpoint) {
 		font-size: 2.6rem;
@@ -96,4 +93,38 @@ font-size: 1.8rem;
 		transform: translate(0px);
 		opacity: 1;
 	}
+}
+
+.powered-by {
+font-size: 1.2rem;
+color: rgba(0, 0, 0, 0.3);
+// color: $bgAlt2;
+margin-top: 1.2rem;
+transform: translateY(-20px);
+opacity: 0;
+
+	@media screen and (min-width: $tablet-breakpoint) {
+		font-size: 1.4rem;
+		margin-top: 1.4rem;
+  }
+  
+  @media screen and (min-width: $desktop-breakpoint) {
+		font-size: 1.6rem;
+		margin-top: 1.6rem;
+	}
+}
+
+.powered-by a {
+	text-decoration: none;
+	color: rgba(0, 0, 0, 0.4);
+	// color: $bgAlt2;
+	transition: color 250ms;
+
+	&:hover{
+		color: rgba(255, 255, 255, 0.8);
+	}
+}
+
+.ready .powered-by {
+	animation: fadeIn 1s ease 600ms forwards;
 }

@@ -1,19 +1,3 @@
-
-const createIcon = (data) => {
-  let icon = '<i class="wi wi-owm-';
-  if ([781, 804, 901, 905].indexOf(data.id) < 0) {
-    if (data.icon.includes('n')) {
-      icon += 'night-';
-    } else if (data.icon.includes('d')) {
-      icon += 'day-';
-    } else {
-      icon += '';
-    }
-  }
-  icon += `${data.id}"></i>`;
-  return icon;
-};
-
 const windIcon = (deg) => {
   switch (true) {
     case deg >= 313:
@@ -63,4 +47,4 @@ const windIcon = (deg) => {
   }
 };
 
-module.exports = { createIcon, windIcon };
+module.exports = { windIcon };
