@@ -2,4 +2,4 @@
 
 A weather application built for freecodecamp.org Front End Development projects.
 
-In the event of an error the app uses seed data as a fallback for demonstration purposes only.
+See it here: https://mystifying-chandrasekhar-87b111.netlify.com/

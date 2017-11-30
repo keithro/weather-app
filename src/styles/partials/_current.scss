@@ -50,6 +50,18 @@
 	}
 }
 
+.current-temp i {
+	font-size: 9rem;
+	
+  @media screen and (min-width: $tablet-breakpoint) {
+		font-size: 10.8rem;
+  }
+  
+  @media screen and (min-width: $desktop-breakpoint) {
+		font-size: 12.6rem;
+	}
+}
+
 .ready .current-temp {
 	animation: fadeIn 1s ease 800ms forwards;
 }

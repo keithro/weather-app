@@ -44,15 +44,15 @@ const toggleUnits = () => {
 unitSelector.addEventListener('click', toggleUnits);
 setUnits();
 
-navigator.geolocation.getCurrentPosition((data) => {
-  ({ latitude, longitude } = data.coords);
-  fetchData(latitude, longitude);
-}, (e) => {
-  alert(e, 'We need your location to fetch your weather');
-});
+// navigator.geolocation.getCurrentPosition((data) => {
+//   ({ latitude, longitude } = data.coords);
+//   fetchData(latitude, longitude);
+// }, (err) => {
+//   alert(err, 'We need your location to fetch your weather');
+// });
 
-// // Simulate AJAX call for development
-// setTimeout(() => {
-//   updateWeather(seedData);
-//   body.classList.toggle('ready');
-// }, 1000);
+// Simulate AJAX call for development
+setTimeout(() => {
+  updateWeather(seedData);
+  body.classList.toggle('ready');
+}, 1000);
