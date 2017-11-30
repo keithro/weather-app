@@ -1,6 +1,7 @@
 const { windIcon } = require('./icons');
 
 const body = document.querySelector('body');
+const loader = document.querySelector('.loader');
 const summary = document.querySelector('.summary');
 const currentTemp = document.querySelector('.current-temp');
 const highLow = document.querySelector('.high-low');
@@ -48,6 +49,8 @@ const updateWeather = (data) => {
   } else if (gray.indexOf(data.currently.icon) >= 0) {
     body.classList.add('gray');
   }
+
+  body.classList.toggle('ready');
 };
 
 module.exports = { updateWeather };

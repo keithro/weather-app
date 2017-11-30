@@ -21,7 +21,7 @@ const fetchData = (lat, long) => {
   axios.get(url)
     .then((res) => {
       updateWeather(res.data);
-      body.classList.toggle('ready');
+      // body.classList.toggle('ready');
     })
     .catch((e) => {
       // console.log('Error!!!', e);
@@ -44,15 +44,15 @@ const toggleUnits = () => {
 unitSelector.addEventListener('click', toggleUnits);
 setUnits();
 
-// navigator.geolocation.getCurrentPosition((data) => {
-//   ({ latitude, longitude } = data.coords);
-//   fetchData(latitude, longitude);
-// }, (err) => {
-//   alert(err, 'We need your location to fetch your weather');
-// });
+navigator.geolocation.getCurrentPosition((data) => {
+  ({ latitude, longitude } = data.coords);
+  fetchData(latitude, longitude);
+}, (err) => {
+  alert(err, 'We need your location to fetch your weather');
+});
 
-// Simulate AJAX call for development
-setTimeout(() => {
-  updateWeather(seedData);
-  body.classList.toggle('ready');
-}, 1000);
+// // Simulate AJAX call for development
+// setTimeout(() => {
+//   updateWeather(seedData);
+//   body.classList.toggle('ready');
+// }, 1000);
