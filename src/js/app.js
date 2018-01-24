@@ -51,6 +51,7 @@ navigator.geolocation.getCurrentPosition((data) => {
   fetchData(latitude, longitude);
 }, (err) => {
   alert(err, 'We need your location to fetch your weather');
+  updateWeather(seedData);
 });
 
 /*  Simulate AJAX call for development only */
