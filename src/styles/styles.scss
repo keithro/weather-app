@@ -1,31 +1,9 @@
 @import './partials/settings';
 @import './partials/base';
+@import './partials/layout';
 @import './partials/background';
 @import './partials/loader';
 @import './partials/current';
 @import './partials/units-button';
 @import './partials/forecast';
-@import './partials/_error-message.scss';
-
-// Layout
-.container {
-  display: none;
-	flex-direction: column;
-	padding: $xs-size;
-
-  @media screen and (min-width: $tablet-breakpoint) {
-    padding: $s-size;
-  }
-
-  @media screen and (min-width: $desktop-breakpoint) {
-    flex-direction: row;
-  }
-}
-
-.ready .container {
-  display: flex;
-  width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-}
+@import './partials/error-message';

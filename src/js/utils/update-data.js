@@ -1,7 +1,6 @@
 const { windIcon } = require('./icons');
 
 const body = document.querySelector('body');
-const loader = document.querySelector('.loader');
 const summary = document.querySelector('.summary');
 const currentTemp = document.querySelector('.current-temp');
 const highLow = document.querySelector('.high-low');
@@ -10,7 +9,7 @@ const windDisplay = document.querySelector('.wind-display > span');
 const dateHeadings = document.querySelectorAll('.date-heading');
 const dailyForecasts = document.querySelectorAll('.daily-forecast');
 
-const gray = ['rain', 'snow', 'sleet', 'fog', 'cloudy', 'hail', 'thunderstorm', 'tornado'];
+const gray = ['rain', 'thunderstorm', 'hail', 'snow', 'sleet', 'fog', 'cloudy', 'tornado'];
 const clear = ['clear-day', 'cloudy-day', 'wind', 'partly-cloudy-day'];
 const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const time = new Date();

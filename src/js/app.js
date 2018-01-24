@@ -3,7 +3,7 @@ import 'normalize.css/normalize.css';
 import '../styles/styles.scss';
 
 const { updateWeather } = require('./utils/update-data');
-// const { seedData } = require('./utils/seed-data');
+const { seedData } = require('./utils/seed-data');
 
 const body = document.querySelector('body');
 const unitSelector = document.querySelector('.unit-selector');
@@ -21,11 +21,13 @@ const fetchData = (lat, long) => {
   axios.get(url)
     .then((res) => {
       updateWeather(res.data);
-      // body.classList.toggle('ready');
     })
     .catch((e) => {
+      // body.classList.toggle('error');
+
+      /* Create fallback for demo purposes */
       // console.log('Error!!!', e);
-      body.classList.toggle('error');
+      updateWeather(seedData);
     });
 };
 
@@ -51,7 +53,7 @@ navigator.geolocation.getCurrentPosition((data) => {
   alert(err, 'We need your location to fetch your weather');
 });
 
-// // Simulate AJAX call for development
+/*  Simulate AJAX call for development only */
 // setTimeout(() => {
 //   updateWeather(seedData);
 //   body.classList.toggle('ready');
